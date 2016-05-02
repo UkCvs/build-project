@@ -18,7 +18,7 @@ fi
 echo
 echo "I am testing that you have the required tools installed"
 for pkg in automake git subversion cvs libtool make g++ flex bison mtd-utils diffutils \
-	pkg-config patch squashfs-tools zlib1g-dev ccache gawk bzip2 dialog expect-dev; do
+	pkg-config patch squashfs-tools zlib1g-dev ccache gawk bzip2 dialog expect-dev zip; do
 	if [ $(dpkg-query -W -f='${Status}' $pkg 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
 		sudo apt-get install -y $pkg
 	else
@@ -141,13 +141,13 @@ if [ -f dreambox/cdkflash/complete-neutrino.img ]; then
 	rm -f ukcvs-$UKCVS_BRANCH-dm500-$revision.zip
 	zip -j ukcvs-$UKCVS_BRANCH-dm500-$revision.zip $buildfile MD5SUM
 	dialog \
-	--clear --backtitle "UkCvs.net Project Build Script - dm500" \
+	--clear --backtitle "UkCvs.net $UKCVS_BRANCH Project Build Script - dm500" \
 	--colors --title "\Z4[ Github:$revision $buildenv Build Finished ]\Zn" \
 	--msgbox "ukcvs-$UKCVS_BRANCH-dm500-$builddate-$revision.img\n\n
 	`date`\nTotal Time: $buildhour hours $buildmins mins $buildsecs secs\n" 8 52
 else
 	dialog \
-	--clear --backtitle "UkCvs.net Project Build Script - dm500" \
+	--clear --backtitle "UkCvs.net $UKCVS_BRANCH Project Build Script - dm500" \
 	--colors --title "\Z4[ Github:$revision $buildenv Build Finished ]\Zn" \
 	--msgbox " ERROR: Build failed to create an image\n\n
 	`date`\n Total Time: $buildhour hours $buildmins mins $buildsecs secs\n" 8 52
