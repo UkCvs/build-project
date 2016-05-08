@@ -1,11 +1,11 @@
 #!/bin/bash
-# UkCvs.net Recruit Project dm500 build script for Ubuntu LTS 32bit - 1st May 2016
+# UkCvs.net Commando Project dm500 build script for Ubuntu LTS 32bit
 
-UKCVS_BRANCH="Recruit"
+COMMANDO_BRANCH="16.0"
 
 buildstart=`date +%s`
 CURRENT_PATH=`pwd`
-PROJECT_PATH="$CURRENT_PATH/ukcvs-$UKCVS_BRANCH"
+PROJECT_PATH="$CURRENT_PATH/commando-$COMMANDO_BRANCH"
 
 if [ `readlink /bin/sh` = "dash" ]; then
 	echo
@@ -41,7 +41,7 @@ else
 fi
 
 dialog \
---clear --cancel-label "Exit" --backtitle "UkCvs.net $UKCVS_BRANCH Project Build Script - dm500" \
+--clear --cancel-label "Exit" --backtitle "UkCvs.net Commando $COMMANDO_BRANCH Project Build Script - dm500" \
 --colors --title "\Z4 [ PLEASE CHOOSE AN OPTION ] \Zn" \
 --menu "\n  Please select what type of image to build \n\n\
  You can use the UP/DOWN arrow navigation keys\n\
@@ -72,7 +72,7 @@ echo
 if [ ! -d $PROJECT_PATH/cdk ] || [ $buildenv = "New" ]; then
 	echo "checking out new build environment"
 	[ -d $PROJECT_PATH ] && rm -rf $PROJECT_PATH
-	git clone -b $UKCVS_BRANCH git://github.com/UkCvs/ukcvs.git $PROJECT_PATH
+	git clone -b $COMMANDO_BRANCH git://github.com/UkCvs/commando.git $PROJECT_PATH
 	cd $PROJECT_PATH
 	git status
 elif [ $buildenv = "Update" ]; then
@@ -81,7 +81,7 @@ elif [ $buildenv = "Update" ]; then
 	git pull
 elif [ $buildenv = "Create" ] || [ $buildenv = "Modify" ]; then
 	echo "using the local build environment"; echo
-	echo "Display Latest Info for $UKCVS_BRANCH Project environment";echo
+	echo "Display Latest Info for Commando $COMMANDO_BRANCH Project environment";echo
 	cd $PROJECT_PATH
 	git log -1 && echo && git status
 	sleep 10
@@ -135,19 +135,19 @@ cd $PROJECT_PATH
 revision=$(git log -1 | grep '^commit' | cut -d ' ' -f2 | cut -c1-7)
 
 if [ -f dreambox/cdkflash/complete-neutrino.img ]; then
-	buildfile="ukcvs-$UKCVS_BRANCH-dm500-$builddate-$revision.img"
+	buildfile="commando-$COMMANDO_BRANCH-dm500-$builddate-$revision.img"
 	cp dreambox/cdkflash/complete-neutrino.img $buildfile
 	md5sum -b $buildfile > MD5SUM
-	rm -f ukcvs-$UKCVS_BRANCH-dm500-$revision.zip
-	zip -j ukcvs-$UKCVS_BRANCH-dm500-$revision.zip $buildfile MD5SUM
+	rm -f commando-$COMMANDO_BRANCH-dm500-$revision.zip
+	zip -j commando-$COMMANDO_BRANCH-dm500-$revision.zip $buildfile MD5SUM
 	dialog \
-	--clear --backtitle "UkCvs.net $UKCVS_BRANCH Project Build Script - dm500" \
+	--clear --backtitle "UkCvs.net Commando $COMMANDO_BRANCH Project Build Script - dm500" \
 	--colors --title "\Z4[ Github:$revision $buildenv Build Finished ]\Zn" \
-	--msgbox "ukcvs-$UKCVS_BRANCH-dm500-$builddate-$revision.img\n\n
+	--msgbox "commando-$COMMANDO_BRANCH-dm500-$builddate-$revision.img\n\n
 	`date`\nTotal Time: $buildhour hours $buildmins mins $buildsecs secs\n" 8 52
 else
 	dialog \
-	--clear --backtitle "UkCvs.net $UKCVS_BRANCH Project Build Script - dm500" \
+	--clear --backtitle "UkCvs.net Commando $COMMANDO_BRANCH Project Build Script - dm500" \
 	--colors --title "\Z4[ Github:$revision $buildenv Build Finished ]\Zn" \
 	--msgbox " ERROR: Build failed to create an image\n\n
 	`date`\n Total Time: $buildhour hours $buildmins mins $buildsecs secs\n" 8 52
