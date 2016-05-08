@@ -78,7 +78,7 @@ if [ ! -d $PROJECT_PATH/cdk ] || [ $buildenv = "New" ]; then
 	mkdir -p $PROJECT_PATH/dreambox
 	cd $PROJECT_PATH
 	for repo in boot driver hostapps cdk apps; do
-		git clone -b $TUXBOX_BRANCH https://github.com/UkCvs/tuxbox-git-$repo.git $repo
+		git clone -b $TUXBOX_BRANCH git://github.com/UkCvs/tuxbox-git-$repo.git $repo
 	done
 elif [ $buildenv = "Update" ]; then
 	echo "updating current build environment"
