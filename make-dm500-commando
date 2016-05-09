@@ -118,6 +118,7 @@ fi
 	--enable-msgbox \
 	--enable-input \
 	--enable-eraseall \
+	--enable-inadyn-mt \
 	--enable-automount \
 	--enable-freesatepg \
 	--enable-upnp
