@@ -43,11 +43,12 @@ fi
 dialog \
 --clear --cancel-label "Exit" --backtitle "UkCvs.net Commando $COMMANDO_BRANCH Project Build Script - dm500" \
 --colors --title "\Z4 [ PLEASE CHOOSE AN OPTION ] \Zn" \
---menu "\n  Please select what type of image to build \n\n\
+--menu "\n   Please select what type of image to build \n\n\
  You can use the UP/DOWN arrow navigation keys\n\
- or keypress C,M,U,N as the choice of hot keys" 15 50 8 \
+ or keypress C,M,R,U,N as a choice of hot keys" 16 52 8 \
 Create "make local only build - distclean" \
 Modify "make local only build - mostlyclean" \
+Remake "make local only build - neutrinoclean" \
 Update "online >> local build - distclean" \
 New "online checkout build - deleted" 2>/tmp/ukcvs
 
@@ -58,6 +59,7 @@ menuitem=$(</tmp/ukcvs)
 case $menuitem in
 	Create) buildenv="Create";;
 	Modify) buildenv="Modify";buildclean="mostlyclean";;
+	Remake) buildenv="Modify";buildclean="neutrinoclean";;
 	Update) buildenv="Update";;
 	New) buildenv="New";;
 esac
