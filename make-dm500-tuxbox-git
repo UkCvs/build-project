@@ -1,5 +1,5 @@
 #!/bin/bash
-# UkCvs.net UkCvs Tuxbox Git Project dm500 build script for Ubuntu LTS 32bit - 8th May 2016
+# UkCvs.net UkCvs Tuxbox Git Project dm500 build script for Ubuntu LTS 32bit - 20th May 2016
 
 TUXBOX_BRANCH="ukcvs"
 
@@ -102,7 +102,7 @@ else
 	echo "Bye"
 	exit 0
 fi
-exit 0
+
 echo
 cd $PROJECT_PATH/cdk
 
