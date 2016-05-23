@@ -163,6 +163,7 @@ else
 	--colors --title "\Z4[ Github:tuxbox-git $buildenv Build Finished ]\Zn" \
 	--msgbox " ERROR: Build failed to create an image\n\n
 	`date`\n Total Time: $buildhour hours $buildmins mins $buildsecs secs\n" 8 52
+	echo && echo "Buildlog - DEBUG MESSAGE:" && tail -20 buildlog.txt
 fi
 echo
 
