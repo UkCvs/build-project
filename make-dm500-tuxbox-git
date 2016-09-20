@@ -1,5 +1,5 @@
 #!/bin/bash
-# UkCvs.net UkCvs Tuxbox Git Project dm500 build script for Ubuntu LTS 32bit - 20th May 2016
+# UkCvs.net UkCvs Tuxbox Git Project dm500 build script for Ubuntu LTS 32bit - 20th Sep 2016
 
 TUXBOX_BRANCH="ukcvs"
 
@@ -130,7 +130,6 @@ fi
 	--enable-openvpn \
 	--enable-msgbox \
 	--enable-input \
-	--enable-eraseall \
 	--enable-automount \
 	--enable-freesatepg \
 	--enable-upnp

@@ -1,5 +1,5 @@
 #!/bin/bash
-# UkCvs.net Cadet Project dm500 build script for Ubuntu LTS 32bit - 1st May 2016
+# UkCvs.net Cadet Project dm500 build script for Ubuntu LTS 32bit - 20th Sep 2016
 
 UKCVS_BRANCH="Cadet"
 
@@ -117,7 +117,6 @@ fi
 	--enable-openvpn \
 	--enable-msgbox \
 	--enable-input \
-	--enable-eraseall \
 	--enable-automount \
 	--enable-freesatepg \
 	--enable-upnp
