@@ -115,6 +115,8 @@ fi
 	--enable-dvbsnoop \
 	--enable-dreambox-serial-console \
 	--enable-fx2-tetris \
+	--enable-fx2-vierg \
+	--enable-fx2-pac \
 	--enable-shellexec \
 	--enable-openvpn \
 	--enable-msgbox \
