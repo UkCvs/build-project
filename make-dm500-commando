@@ -119,6 +119,7 @@ fi
 	--enable-fx2-pac \
 	--enable-shellexec \
 	--enable-openvpn \
+	--enable-madplay \
 	--enable-msgbox \
 	--enable-input \
 	--enable-inadyn-mt \
